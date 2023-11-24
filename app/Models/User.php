@@ -17,6 +17,30 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    const USER = 0;
+    const ADMIN = 1;
+    const SUPER_ADMIN = 2;
+
+
+    public static function getRoles()
+    {
+        return [
+            self::USER => 'USER',
+            self::ADMIN => 'ADMIN',
+            self::SUPER_ADMIN => 'SUPER_ADMIN',
+        ];
+    }
+
+    public static function getRoleAsString($role)
+    {
+        $roles = [
+            self::USER => 'USER',
+            self::ADMIN => 'ADMIN',
+            self::SUPER_ADMIN => 'SUPER_ADMIN',
+        ];
+        return $roles[$role] ?? 'Unknown Role';
+    }
     protected $fillable = [
         'name',
         'email',
