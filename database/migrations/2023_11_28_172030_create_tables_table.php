@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('establishment_id');
             $table->integer('number');
             $table->string('qr');
+            $table->string('hash');
             $table->integer('floor')->default(1);
             $table->timestamps();
 
